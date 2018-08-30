@@ -1,7 +1,7 @@
 # Test Task for Intern / Junior Front-End Developer Position @ Youscan
 
 #### Демо : 
-https://my-app2-qslmeswifw.now.sh/
+https://my-app2-kexutaxdfd.now.sh
 
 #### Инструкция :
  npm start
