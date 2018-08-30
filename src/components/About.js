@@ -76,7 +76,11 @@ export class About extends React.Component {
           />
           <h1>{this.state.movie.original_title}</h1>
           <p>{this.state.movie.status}</p>
-          <h3>{this.state.desGener}</h3>
+          {this.state.desGener === "" ? (
+            <h3> none </h3>
+          ) : (
+            <h3>{this.state.desGener}</h3>
+          )}
           <h3>{this.state.movie.overview}</h3>
           {this.state.add ? (
             <Button
