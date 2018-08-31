@@ -21,20 +21,22 @@ export class About extends React.Component {
       .then(function(response) {
         document.title = response.data.original_title
         self.setState({ movie: response.data })
-
+        var GENER = ""
         if (self.state.movie.genres) {
           self.state.movie.genres.map(item => {
             self.props.geners.map(number => {
               if (item.id === number.id) {
-                self.setState(prevState => ({
-                  desGener: prevState.desGener + number.name + "  ",
-                }))
+                GENER = GENER + " " + number.name
               }
               return null
             })
             return null
           })
         }
+
+        self.setState({
+          desGener: GENER,
+        })
         self.props.favorite.map(fav => {
           if (self.state.movie.id === fav.id) {
             self.setState({ add: true })
@@ -54,9 +56,6 @@ export class About extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    this.setState(() => ({
-      desGener: "",
-    }))
     this.setState({ add: false })
     this._updateState(newProps.id)
   }
